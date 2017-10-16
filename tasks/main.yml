@@ -1,7 +1,7 @@
 - name: Install repo
   copy:
-    src: repo
-    dest: /etc/yum.repos.d/google-chrome
+    src: google-chrome.repo
+    dest: /etc/yum.repos.d/google-chrome.repo
 
 - name: Install browser
   yum:
