@@ -1,0 +1,9 @@
+- name: Install repo
+  copy:
+    src: repo
+    dest: /etc/yum.repos.d/google-chrome
+
+- name: Install browser
+  yum:
+    name: google-chrome-stable
+    state: present
