@@ -1,4 +1,3 @@
-Installs google-chrome on centos
-================================
+# Installs Visual Studio Code on centos
 
 LICENSE: MIT

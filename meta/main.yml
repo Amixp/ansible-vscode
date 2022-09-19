@@ -1,14 +1,12 @@
 dependencies: []
 galaxy_info:
-  author: Filip Sobalski
+  author: 
   company: creativestyle
-  description: Install google-chrome
+  description: Install Visual Studio Code
   license: MIT
   min_ansible_version: 1.9
   galaxy_tags:
-    - google
-    - chrome
-    - google-chrome
+    - Visual Studio Code
   platforms:
     - name: EL
       versions:

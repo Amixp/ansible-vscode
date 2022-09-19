@@ -1,0 +1,16 @@
+- name: Install repo yum
+  copy:
+    src: "{{ item }}"
+    dest: /etc/yum.repos.d/code.repo
+  with_first_found:
+    - "{{ ansible_distribution | lower }}_{{ ansible_distribution_release | lower }}.repo"
+    - "{{ ansible_distribution | lower }}.repo"
+
+- name: Install Visual Studio Code
+  yum:
+    name: code
+    state: present
+  ignore_errors: "{{ ansible_check_mode }}"
+  #when: "{{ ansible_check_mode | bool }} == 'false'"
+
+

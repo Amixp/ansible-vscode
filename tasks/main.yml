@@ -1,9 +1,19 @@
-- name: Install repo
-  copy:
-    src: google-chrome.repo
-    dest: /etc/yum.repos.d/google-chrome.repo
+- name: "Ansible | Print a operating system"
+  debug:
+    msg: "The operating system is {{ ansible_distribution }} and {{ ansible_distribution_release }} "
 
-- name: Install browser
-  yum:
-    name: google-chrome-stable
-    state: present
+- include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution | lower }}_{{ ansible_distribution_release | lower }}.yml"
+    - "{{ ansible_distribution | lower }}.yml"
+    - "empty.yml"
+
+
+- include_tasks: "{{ item }}"
+  with_first_found:
+    - "install_{{ ansible_pkg_mgr }}.yml"
+    - "empty.yml"
+
+
+
+
